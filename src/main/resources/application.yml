@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: ms-eureka
+
+server:
+  port: 8761
+
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+
+logging:
+  level:
+    "[com.netflix.eureka]": info
+    "[com.netflix.discovery]": info
