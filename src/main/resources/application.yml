@@ -1,4 +1,6 @@
 spring:
+  main:
+    banner-mode: off
   application:
     name: ms-eureka
 
@@ -14,3 +16,5 @@ logging:
   level:
     "[com.netflix.eureka]": info
     "[com.netflix.discovery]": info
+  file:
+    name: ${LOG_PATH:./log}/${spring.application.name}.log
