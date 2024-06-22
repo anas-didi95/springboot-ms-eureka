@@ -12,6 +12,15 @@ eureka:
     register-with-eureka: false
     fetch-registry: false
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,loggers,metrics,logfile
+    jmx:
+      exposure:
+        include: ${management.endpoints.web.exposure.include}
+
 logging:
   level:
     "[com.netflix.eureka]": info
