@@ -1,11 +1,15 @@
+server:
+  port: 8761
+
 spring:
   main:
     banner-mode: off
   application:
     name: ms-eureka
-
-server:
-  port: 8761
+  security:
+    user:
+      name: admin
+      password: p@ssw0rd
 
 eureka:
   client:
