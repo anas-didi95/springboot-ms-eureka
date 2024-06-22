@@ -1,3 +1,4 @@
+/* (C) 2024 */
 package com.anasdidi.mseureka;
 
 import org.springframework.boot.SpringApplication;

@@ -30,7 +30,8 @@
         "redhat.vscode-xml",
         "redhat.vscode-yaml",
         "vscjava.vscode-gradle",
-        "vmware.vscode-boot-dev-pack"
+        "vmware.vscode-boot-dev-pack",
+        "richardwillis.vscode-spotless-gradle"
       ]
     }
   }
