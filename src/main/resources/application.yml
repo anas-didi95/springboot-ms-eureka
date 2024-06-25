@@ -6,10 +6,6 @@ spring:
     banner-mode: off
   application:
     name: ms-eureka
-  security:
-    user:
-      name: admin
-      password: password
 
 eureka:
   client:
@@ -18,16 +14,10 @@ eureka:
 
 management:
   endpoints:
-    web:
-      exposure:
-        include: health,info,loggers,metrics,logfile
     jmx:
       exposure:
         include: ${management.endpoints.web.exposure.include}
 
 logging:
-  level:
-    "[com.netflix.eureka]": info
-    "[com.netflix.discovery]": info
   file:
     name: ${LOG_PATH:./log}/${spring.application.name}.log
