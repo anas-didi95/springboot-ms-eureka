@@ -2,8 +2,10 @@
 package com.anasdidi.mseureka;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -15,7 +17,10 @@ import org.springframework.test.context.ActiveProfiles;
 
 @SpringBootTest(webEnvironment = WebEnvironment.DEFINED_PORT)
 @ActiveProfiles("dev")
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class MseurekaApplicationTests {
+
+  private static final String EUREKA_LIST_PATH = "/eureka/v2/apps";
 
   @Autowired private TestRestTemplate restTemplate;
 
@@ -34,9 +39,13 @@ class MseurekaApplicationTests {
   @Test
   void testEurekaUp() {
     ResponseEntity<Object> response =
-        restTemplate
-            .withBasicAuth(username, password)
-            .getForEntity("/eureka/v2/apps", Object.class);
-    Assertions.assertEquals(response.getStatusCode().value(), HttpStatus.OK.value());
+        restTemplate.withBasicAuth(username, password).getForEntity(EUREKA_LIST_PATH, Object.class);
+    Assertions.assertEquals(response.getStatusCode(), HttpStatus.OK);
+  }
+
+  @Test
+  void testEurekaAuthError() {
+    ResponseEntity<Object> response = restTemplate.getForEntity(EUREKA_LIST_PATH, Object.class);
+    Assertions.assertEquals(response.getStatusCode(), HttpStatus.UNAUTHORIZED);
   }
 }
