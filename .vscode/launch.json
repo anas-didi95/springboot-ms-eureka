@@ -1,0 +1,14 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Spring Boot-MseurekaApplication<workspace>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.anasdidi.mseureka.MseurekaApplication",
+      "projectName": "workspace",
+      "args": "--spring.profiles.active=dev",
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
+}
