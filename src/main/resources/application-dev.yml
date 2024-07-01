@@ -1,0 +1,22 @@
+server:
+  port: 8761
+
+spring:
+  security:
+    user:
+      name: eureka
+      password: eureka
+
+eureka:
+  environment: dev
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,loggers,metrics,logfile
+
+logging:
+  level:
+    "[com.netflix.eureka]": debug
+    "[com.netflix.discovery]": debug

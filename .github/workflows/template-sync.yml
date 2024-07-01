@@ -4,7 +4,7 @@ name: Template Sync
 on:
   workflow_dispatch:
   schedule:
-    - cron:  "0 0 1 * *"
+    - cron: "0 0 1 * *"
 
 jobs:
   repo-sync:
@@ -21,5 +21,5 @@ jobs:
         uses: AndreasAugustin/actions-template-sync@v2
         with:
           source_repo_path: anas-didi95/devcontainer-java
-          upstream_branch: main
+          upstream_branch: dev
           pr_labels: template_sync
